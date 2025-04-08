@@ -3,8 +3,6 @@ import path from 'path'
 import winston from 'winston'
 import 'winston-daily-rotate-file'
 
-fs.mkdirSync('logs/old', { recursive: true })
-
 const centralTimeFormatter = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago',
     year: 'numeric',
@@ -22,7 +20,7 @@ const timestampFormat = winston.format.timestamp({
 
 const createLogger = (filename: string) => {
     const transport = new winston.transports.DailyRotateFile({
-        filename: `logs/${filename}-%DATE%.log`,
+        filename: `logs/%DATE%-${filename}.log`,
         datePattern: 'YYYY-MM-DD',
         zippedArchive: true,
         maxSize: '10m',
