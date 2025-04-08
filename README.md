@@ -1,4 +1,4 @@
-My own automated backup service, built in TypeScript. Cobbled together in a day with rather poor error handling.
+My own automated backup service, built in TypeScript. Cobbled together in a couple days with rather poor error handling.
 
 Uses child_processes.spawn() to execute rsync commands which pull from my Windows machine to the home server that this service is running on.
 
