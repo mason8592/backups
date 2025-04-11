@@ -16,7 +16,7 @@ const backup = ({ source, destination, options }: Backup): Promise<{ source: str
     const normalizedDestination = isWindowsPath(destination) ? `mason@192.168.0.144:${normalizeWindowsPath(destination)}` : destination
 
     const rsyncArgs = [
-        '-avs',
+        '-as',
         '-e', 'ssh',
         '--info=NAME',
         ...include,
