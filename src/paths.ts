@@ -25,11 +25,14 @@ const paths: Paths = {
     ],
     "10 * * * *": [ // 10 minutes past the hour
         { // automatically backup from the SSD to the ZFS pool
+            source: "/mnt/storage/Backups/",
+            destination: "/mnt/pool/Backups/",
+        },
+        { // place other folders from /mnt/storage into the ZFS pool's Backups folder
             source: "/mnt/storage/",
-            destination: "/mnt/pool",
+            destination: "/mnt/pool/Backups",
             options: {
                 include: [
-                    "Backups/***",
                     "Services/***"
                 ],
                 exclude: ["*"]
